@@ -1,8 +1,8 @@
 // PascalCasing
 function Message() {
     // JSX: JavaScript XML
-    const name = "Luccas";
-    return <h1>Hello {name}</h1>
+    const title = "EscalaFácil";
+    return <h1>{title}</h1>
 }
 
 export default Message;
