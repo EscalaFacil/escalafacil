@@ -19,8 +19,11 @@
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
+      "@pages": ["src/pages"],
       "@pages/*": ["src/pages/*"],
       "@router": ["src/router"],
+      "@firebase": ["src/firebase"],
+      "@firebase/*": ["src/firebase/*"]
     }
   },
   "include": ["src"],

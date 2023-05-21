@@ -1,6 +1,8 @@
-import Root from "@/Root";
-import Dashboard from "@/pages/dashboard";
-import Login from "@/pages/login";
+import { getUserInfo } from "@firebase/database";
+import { getUser } from "@firebase/login";
+import Root from "@pages";
+import Dashboard from "@pages/[org-slug]/dashboard";
+import Login from "@pages/login";
 import { LoaderFunctionArgs, createBrowserRouter, redirect } from "react-router-dom";
 
 
@@ -8,27 +10,63 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    loader: UnauthLoader
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
+    loader: UnauthLoader
   },
   {
-    path: ":orgSlug/dashboard",
+    path: "/:orgSlug",
+    loader: ({ params }) => {
+      return redirect(`/${params.orgSlug}/dashboard`);
+    }
+  },
+  {
+    path: "/:orgSlug/dashboard",
     element: <Dashboard />,
     loader: AuthLoader
   }
 ]);
 
 
-async function AuthLoader({ request, params }: LoaderFunctionArgs) {
-  const { orgSlug } = params;
+async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
 
-  // Verificar se o usuário está logado e sua organização é a mesma da URL
-  if (orgSlug !== "teste") {
+  const user = await getUser();
+
+  if (!user) {
     return redirect("/login");
   }
 
-  // Realizar o fetch dos dados necessários para a página
+  const userInfo = await getUserInfo(user.uid);
+
+  if (!userInfo) {
+    return redirect("/login");
+  }
+
+  return redirect(`/${userInfo.companyId}`);
+}
+
+async function AuthLoader({ request, params }: LoaderFunctionArgs) {
+  const { orgSlug } = params;
+
+  const user = await getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  const userInfo = await getUserInfo(user.uid);
+
+  if (!userInfo) {
+    return redirect("/login");
+  }
+
+  // Verificar se o usuário está logado e sua organização é a mesma da URL
+  if (orgSlug !== userInfo.companyId) {
+    return redirect(`/${userInfo.companyId}/dashboard`);
+  }
+
   return null;
 }
