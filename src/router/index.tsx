@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-    loader: UnauthLoader
+    loader: LoginLoader
   },
   {
     path: "/:orgSlug",
@@ -43,6 +43,23 @@ async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
 
   if (!userInfo) {
     return redirect("/login");
+  }
+
+  return redirect(`/${userInfo.companyId}`);
+}
+
+async function LoginLoader({ request, params }: LoaderFunctionArgs) {
+
+  const user = await getUser();
+
+  if (!user) {
+    return null;
+  }
+
+  const userInfo = await getUserInfo(user.uid);
+
+  if (!userInfo) {
+    return null;
   }
 
   return redirect(`/${userInfo.companyId}`);

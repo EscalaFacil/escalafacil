@@ -25,3 +25,7 @@ export async function signInWithEmail(email: string, password: string) {
     return false;
   }
 }
+
+export async function signOut() {
+  return await auth.signOut();
+}
