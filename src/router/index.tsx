@@ -9,7 +9,6 @@ import { LoaderFunctionArgs, createBrowserRouter, redirect } from "react-router-
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
     loader: UnauthLoader
   },
   {

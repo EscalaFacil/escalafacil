@@ -8,7 +8,7 @@ export async function getUserInfo(uid: string) {
 
   const docRef = doc(db, "users", uid);
   const docSnap = await getDoc(docRef);
-  const user = docSnap.data();
+  const userInfo = docSnap.data();
 
-  return user;
+  return userInfo;
 }
