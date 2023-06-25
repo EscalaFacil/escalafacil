@@ -3,35 +3,36 @@ import { getUser } from "@firebase/login";
 import Root from "@pages";
 import Dashboard from "@pages/[org-slug]/dashboard";
 import Login from "@pages/login";
-import { LoaderFunctionArgs, createBrowserRouter, redirect } from "react-router-dom";
-
+import {
+  LoaderFunctionArgs,
+  createBrowserRouter,
+  redirect,
+} from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    loader: UnauthLoader
+    loader: UnauthLoader,
   },
   {
     path: "/login",
     element: <Login />,
-    loader: LoginLoader
+    loader: LoginLoader,
   },
   {
     path: "/:orgSlug",
     loader: ({ params }) => {
       return redirect(`/${params.orgSlug}/dashboard`);
-    }
+    },
   },
   {
     path: "/:orgSlug/dashboard",
     element: <Dashboard />,
-    loader: AuthLoader
-  }
+    loader: AuthLoader,
+  },
 ]);
 
-
 async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
-
   const user = await getUser();
 
   if (!user) {
@@ -48,7 +49,6 @@ async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
 }
 
 async function LoginLoader({ request, params }: LoaderFunctionArgs) {
-
   const user = await getUser();
 
   if (!user) {
