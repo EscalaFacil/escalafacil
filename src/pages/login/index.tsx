@@ -25,7 +25,7 @@ export default function Login() {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Faça seu login
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <div className="space-y-4 md:space-y-6">
                 <div>
                   <label
                     htmlFor="email"
@@ -110,7 +110,7 @@ export default function Login() {
                     Cadastre-se
                   </a>
                 </p>
-              </form>
+              </div>
             </div>
           </div>
         </div>
