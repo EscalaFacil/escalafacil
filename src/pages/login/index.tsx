@@ -1,7 +1,7 @@
 import { signInWithEmail } from "@/firebase/login";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginForm from '../../components/LoginForm';
+import LoginForm from "../../components/NewLoginForm";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,8 +11,8 @@ export default function Login() {
 
   return (
     <>
-    <LoginForm />
-      <h1>Login</h1>
+      <LoginForm />
+      {/* <h1>Login</h1>
       <input
         type="text"
         placeholder="Usuário"
@@ -36,7 +36,7 @@ export default function Login() {
         }}
       >
         Entrar
-      </button>
+      </button> */}
     </>
   );
 }
