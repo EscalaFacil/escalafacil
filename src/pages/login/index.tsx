@@ -101,7 +101,7 @@ export default function Login() {
                 >
                   Entrar
                 </button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Ainda não tem uma conta?{" "}
                   <a
                     href="#"
@@ -109,7 +109,7 @@ export default function Login() {
                   >
                     Cadastre-se
                   </a>
-                </p>
+                </p> */}
               </div>
             </div>
           </div>

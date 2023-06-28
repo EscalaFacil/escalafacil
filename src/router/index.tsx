@@ -3,6 +3,8 @@ import { getUser } from "@firebase/login";
 import Root from "@pages";
 import Dashboard from "@pages/[org-slug]/dashboard";
 import Login from "@pages/login";
+import ForgetPassword from "@pages/forget-password";
+
 import {
   LoaderFunctionArgs,
   createBrowserRouter,
@@ -18,6 +20,11 @@ export const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
     loader: LoginLoader,
+  },
+  {
+    path: "/forget-password",
+    element: <ForgetPassword />,
+    loader: ForgetPasswordLoader,
   },
   {
     path: "/:orgSlug",
@@ -62,6 +69,10 @@ async function LoginLoader({ request, params }: LoaderFunctionArgs) {
   }
 
   return redirect(`/${userInfo.companyId}`);
+}
+
+async function ForgetPasswordLoader({ request, params }: LoaderFunctionArgs) {
+  return null;
 }
 
 async function AuthLoader({ request, params }: LoaderFunctionArgs) {
