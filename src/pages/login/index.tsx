@@ -2,6 +2,7 @@ import { signInWithEmail } from "@/firebase/login";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "src/logo.svg";
+import Button from "../../components/Button";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ export default function Login() {
             <img className="w-8 h-8 mr-2" src={logo} alt="logo" />
             EscalaFácil
           </Link>
+
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -101,6 +103,7 @@ export default function Login() {
                 >
                   Entrar
                 </button>
+                {/* <Button message=  "Entrar" /> */}
                 {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Ainda não tem uma conta?{" "}
                   <a
