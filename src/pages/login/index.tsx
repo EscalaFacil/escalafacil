@@ -2,7 +2,8 @@ import { signInWithEmail } from "@/firebase/login";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "src/logo.svg";
-import Button from "../../components/Button";
+import Button from "../../components/ButtonSystem";
+import Navbar from "../../components/NavBar";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -10,8 +11,17 @@ export default function Login() {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
 
+  const tryLogin = async () => {
+    const user = await signInWithEmail(userEmail, userPassword);
+    // console.log(user);
+    if (user) {
+      navigate("/");
+    }
+  };
+
   return (
     <>
+      <Navbar />
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <Link
@@ -42,6 +52,7 @@ export default function Login() {
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="nome@empresa.com"
                     required
+                    autoComplete="email"
                     value={userEmail}
                     onChange={(e) => setUserEmail(e.target.value)}
                   />
@@ -91,7 +102,9 @@ export default function Login() {
                     Esqueceu sua senha?
                   </Link>
                 </div>
-                <button
+                <Button message="Entrar" onClick={tryLogin} />
+
+                {/* <button
                   onClick={async (e) => {
                     const user = await signInWithEmail(userEmail, userPassword);
                     console.log(user);
@@ -102,8 +115,8 @@ export default function Login() {
                   className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                 >
                   Entrar
-                </button>
-                {/* <Button message=  "Entrar" /> */}
+                </button> */}
+
                 {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                   Ainda não tem uma conta?{" "}
                   <a
