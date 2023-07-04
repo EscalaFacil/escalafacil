@@ -1,4 +1,5 @@
 import logo from "src/logo.svg";
+import userAvatar from "src/userAvatar.jpg";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -6,8 +7,11 @@ export default function Navbar() {
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <Link to="/forget-password" className="flex items-center">
-            <img className="h-8 mr-3" src={logo} alt="logo" />
+          <Link
+            to="/login"
+            className="flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
+          >
+            <img className="h-8" src={logo} alt="logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               EscalaFácil
             </span>
@@ -21,24 +25,24 @@ export default function Navbar() {
               data-dropdown-toggle="user-dropdown"
               data-dropdown-placement="bottom"
             >
-              <span className="sr-only">Open user menu</span>
+              <span className="sr-only">Abrir menu de usuário</span>
               <img
                 className="w-8 h-8 rounded-full"
-                src="/docs/images/people/profile-picture-3.jpg"
-                alt="user photo"
+                src={userAvatar}
+                alt="Foto de Usuário"
               />
-              <img className="w-8 h-8 mr-2" src={logo} alt="logo" />
             </button>
+            {/* <!-- Dropdown menu --> */}
             <div
               className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
               id="user-dropdown"
             >
               <div className="px-4 py-3">
                 <span className="block text-sm text-gray-900 dark:text-white">
-                  Bonnie Green
+                  Luccas Lopes
                 </span>
                 <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                  name@flowbite.com
+                  luccas.lopes@escalafacil.com
                 </span>
               </div>
               <ul className="py-2" aria-labelledby="user-menu-button">
@@ -47,7 +51,7 @@ export default function Navbar() {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
-                    Dashboard
+                    Configurações
                   </a>
                 </li>
                 <li>
@@ -55,23 +59,7 @@ export default function Navbar() {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
-                    Settings
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                  >
-                    Earnings
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                  >
-                    Sign out
+                    Sair
                   </a>
                 </li>
               </ul>
@@ -83,7 +71,7 @@ export default function Navbar() {
               aria-controls="mobile-menu-2"
               aria-expanded="false"
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">Abrir menu principal</span>
               <svg
                 className="w-6 h-6"
                 aria-hidden="true"
@@ -126,23 +114,7 @@ export default function Navbar() {
                   href="#"
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
-                  Configurações
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                >
-                  Contact
+                  Desempenho
                 </a>
               </li>
             </ul>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "src/logo.svg";
 import Button from "../../components/ButtonSystem";
-import Navbar from "../../components/NavBar";
+import Navbar from "../../components/Navbar";
 
 export default function Login() {
   const navigate = useNavigate();
