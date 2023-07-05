@@ -1,4 +1,4 @@
-export default function CRUDLayout() {
+export default function UsersLayout() {
   return (
     <>
       <>
