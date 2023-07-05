@@ -46,8 +46,9 @@ async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
     return redirect("/login");
   }
 
+  // Realiza a verificação das informações do usuário:
   const userInfo = await getUserInfo(user.uid);
-
+  // console.log(userInfo);
   if (!userInfo) {
     return redirect("/login");
   }

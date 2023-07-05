@@ -1,15 +1,12 @@
 import { signOut } from "@/firebase/login";
+import BottomNav from "../../../components/BottomNav";
 
 export default function Dashboard() {
-
-
   return (
     <>
-    <p>Dashboard</p>
-    <button onClick={async () => {
-      await signOut();
-      window.location.reload();
-      }}>Deslogar</button>
+      <BottomNav />
+
+      <p>Dashboard</p>
     </>
   );
 }

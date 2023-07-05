@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { signOut } from "@/firebase/login";
 
 export default function Navbar() {
   return (
@@ -68,9 +69,9 @@ export default function Navbar() {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M9 1v16M1 9h16"
                 />
               </svg>
@@ -99,9 +100,9 @@ export default function Navbar() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"
               />
             </svg>
@@ -116,7 +117,11 @@ export default function Navbar() {
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           <button
-            data-tooltip-target="tooltip-profile"
+            onClick={async () => {
+              await signOut();
+              window.location.reload();
+            }}
+            data-tooltip-target="tooltip-exit"
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 rounded-r-full hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
@@ -129,20 +134,20 @@ export default function Navbar() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3"
               />
             </svg>
-            <span className="sr-only">Profile</span>
+            <span className="sr-only">Sair</span>
           </button>
           <div
-            id="tooltip-profile"
+            id="tooltip-exit"
             role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
           >
-            Profile
+            Sair
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
         </div>

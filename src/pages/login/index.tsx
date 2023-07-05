@@ -13,7 +13,7 @@ export default function Login() {
 
   const tryLogin = async () => {
     const user = await signInWithEmail(userEmail, userPassword);
-    // console.log(user);
+    console.log(user);
     if (user) {
       navigate("/");
     }
@@ -21,7 +21,6 @@ export default function Login() {
 
   return (
     <>
-      <Navbar />
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <Link
@@ -39,12 +38,12 @@ export default function Login() {
               </h1>
               <div className="space-y-4 md:space-y-6">
                 <div>
-                  <label
+                  {/* <label
                     htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     E-mail
-                  </label>
+                  </label> */}
                   <input
                     type="email"
                     name="email"
@@ -58,12 +57,12 @@ export default function Login() {
                   />
                 </div>
                 <div>
-                  <label
+                  {/* <label
                     htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Senha
-                  </label>
+                  </label> */}
                   <input
                     type="password"
                     name="password"
@@ -76,33 +75,16 @@ export default function Login() {
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="remember"
-                        aria-describedby="remember"
-                        type="checkbox"
-                        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                        required
-                      />
-                    </div>
-                    <div className="ml-3 text-sm">
-                      <label
-                        htmlFor="remember"
-                        className="text-gray-500 dark:text-gray-300"
-                      >
-                        Lembre-se de mim
-                      </label>
-                    </div>
-                  </div>
                   <Link
                     to="/forget-password"
                     className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Esqueceu sua senha?
                   </Link>
+                  <div className="flex items-start">
+                    <Button message="Entrar" onClick={tryLogin} />
+                  </div>
                 </div>
-                <Button message="Entrar" onClick={tryLogin} />
 
                 {/* <button
                   onClick={async (e) => {
