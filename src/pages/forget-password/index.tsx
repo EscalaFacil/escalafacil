@@ -27,12 +27,6 @@ export default function ForgetPassword() {
               </h1>
               <div className="space-y-4 md:space-y-6">
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    E-mail
-                  </label>
                   <input
                     type="email"
                     name="email"
