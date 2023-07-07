@@ -46,6 +46,7 @@ export default function Navbar() {
             </svg>
             <span className="sr-only">Usuários</span>
           </button>
+          {/* <Link to=":orgSlug/users">Link</Link> */}
           <div
             id="tooltip-wallet"
             role="tooltip"

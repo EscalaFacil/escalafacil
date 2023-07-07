@@ -2,6 +2,7 @@ import { getUserInfo } from "@firebase/database";
 import { getUser } from "@firebase/login";
 import Root from "@pages";
 import Dashboard from "@pages/[org-slug]/dashboard";
+import Users from "@pages/[org-slug]/users";
 import Login from "@pages/login";
 import ForgetPassword from "@pages/forget-password";
 
