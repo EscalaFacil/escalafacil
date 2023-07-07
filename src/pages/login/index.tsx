@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import logo from "src/logo.svg";
 import Button from "../../components/ButtonSystem";
 import Navbar from "../../components/BottomNav";
+// import ReCaptcha from "react-google-recaptcha";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ export default function Login() {
                     onChange={(e) => setUserPassword(e.target.value)}
                   />
                 </div>
+                  {/* <ReCaptcha className="flex items-center justify-center w-full" sitekey="6LdGYQQnAAAAALVG_k1bFfJX2FfjKgfYKVLQ-h_5"/> */}
                 <div className="flex items-center justify-between">
                   <Link
                     to="/forget-password"
@@ -86,7 +88,7 @@ export default function Login() {
                 </div>
 
                 {/* <button
-                  onClick={async (e) => {
+                  onClick={async (e) => { 
                     const user = await signInWithEmail(userEmail, userPassword);
                     console.log(user);
                     if (user) {
