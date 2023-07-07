@@ -1,4 +1,4 @@
-import { Modal } from "flowbite";
+// import { Modal } from "flowbite";
 import BottomNav from "../../../components/BottomNav";
 import CRUDLayout from "../../../components/CRUDLayout";
 
