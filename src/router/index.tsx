@@ -38,6 +38,11 @@ export const router = createBrowserRouter([
     element: <Dashboard />,
     loader: AuthLoader,
   },
+  {
+    path: "/:orgSlug/users",
+    element: <Users />,
+    loader: AuthLoaderUsers,
+  }, 
 ]);
 
 async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
@@ -95,6 +100,29 @@ async function AuthLoader({ request, params }: LoaderFunctionArgs) {
   // Verificar se o usuário está logado e sua organização é a mesma da URL
   if (orgSlug !== userInfo.companyId) {
     return redirect(`/${userInfo.companyId}/dashboard`);
+  }
+
+  return null;
+}
+
+async function AuthLoaderUsers({ request, params }: LoaderFunctionArgs) {
+  const { orgSlug } = params;
+
+  const user = await getUser();
+
+  if (!user) {
+    return redirect("/login");
+  }
+
+  const userInfo = await getUserInfo(user.uid);
+
+  if (!userInfo) {
+    return redirect("/login");
+  }
+
+  // Verificar se o usuário está logado e sua organização é a mesma da URL
+  if (orgSlug !== userInfo.companyId) {
+    return redirect(`/${userInfo.companyId}/users`);
   }
 
   return null;
