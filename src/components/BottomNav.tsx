@@ -93,10 +93,11 @@ export default function Navbar() {
             Criar nova tarefa
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
-          <button
-            data-tooltip-target="tooltip-settings"
-            type="button"
-            className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+          <Link 
+          to="/:orgSlug/settings"
+          data-tooltip-target="tooltip-wallet"
+          type="button"
+          className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
             <svg
               className="w-5 h-5 mb-1 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
@@ -114,7 +115,7 @@ export default function Navbar() {
               />
             </svg>
             <span className="sr-only">Configurações</span>
-          </button>
+          </Link>
           <div
             id="tooltip-settings"
             role="tooltip"

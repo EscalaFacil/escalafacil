@@ -147,7 +147,7 @@ export default function CRUDLayout() {
                     <path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z" />
                     <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
                   </svg>
-                  Baixar CSV
+                  Exportar
                 </button>
                 <div className="flex items-center space-x-3 w-full md:w-auto">
                   <button
@@ -456,7 +456,7 @@ export default function CRUDLayout() {
                     <td className="px-4 py-3">05/07/2023 13:00</td>
                     <td className="px-4 py-3">Em andamento</td>
                     <td className="px-4 py-3 max-w-[12rem] truncate">
-                      Cuidando da praça de São Paulo.
+                      Conciliando dados bancários.
                     </td>
                     <td className="px-4 py-3 flex items-center justify-end">
                       <button
