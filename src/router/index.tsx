@@ -3,7 +3,7 @@ import { getUser } from "@firebase/login";
 import Root from "@pages";
 import Dashboard from "@pages/[org-slug]/dashboard";
 import Users from "@pages/[org-slug]/users";
-import Settings from "@pages/[org-slug]/settings";
+import Reports from "@/pages/[org-slug]/reports";
 import Login from "@pages/login";
 import ForgetPassword from "@pages/forget-password";
 
@@ -43,12 +43,12 @@ export const router = createBrowserRouter([
     path: "/:orgSlug/users",
     element: <Users />,
     loader: AuthLoaderUsers,
-  }, 
+  },
   {
-    path: "/:orgSlug/settings",
-    element: <Settings />,
-    loader: AuthLoaderSettings,
-  }, 
+    path: "/:orgSlug/reports",
+    element: <Reports />,
+    loader: AuthLoaderReports,
+  },
 ]);
 
 async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
@@ -134,7 +134,7 @@ async function AuthLoaderUsers({ request, params }: LoaderFunctionArgs) {
   return null;
 }
 
-async function AuthLoaderSettings({ request, params }: LoaderFunctionArgs) {
+async function AuthLoaderReports({ request, params }: LoaderFunctionArgs) {
   const { orgSlug } = params;
 
   const user = await getUser();
@@ -151,7 +151,7 @@ async function AuthLoaderSettings({ request, params }: LoaderFunctionArgs) {
 
   // Verificar se o usuário está logado e sua organização é a mesma da URL
   if (orgSlug !== userInfo.companyId) {
-    return redirect(`/${userInfo.companyId}/settings`);
+    return redirect(`/${userInfo.companyId}/reports`);
   }
 
   return null;

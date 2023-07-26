@@ -60,7 +60,7 @@ export default function Navbar() {
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           <Link
-            to="/:orgSlug/settings"
+            to="/:orgSlug/reports"
             data-tooltip-target="tooltip-wallet"
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
@@ -74,20 +74,20 @@ export default function Navbar() {
             >
               <path
                 stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 12v5m5-9v9m5-5v5m5-9v9M1 7l5-6 5 6 5-6"
               />
             </svg>
-            <span className="sr-only">Configurações</span>
+            <span className="sr-only">Relatórios</span>
           </Link>
           <div
             id="tooltip-settings"
             role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
           >
-            Settings
+            Relatórios
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           <button
