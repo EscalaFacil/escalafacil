@@ -11,7 +11,7 @@ export default function CRUDLayout() {
               <div className="w-full md:w-1/2">
                 <form className="flex items-center">
                   <label htmlFor="simple-search" className="sr-only">
-                    Search
+                    Pesquisar
                   </label>
                   <div className="relative w-full">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -425,7 +425,7 @@ export default function CRUDLayout() {
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" className="px-4 py-4">
-                      Colaborador
+                      Nome
                     </th>
                     <th scope="col" className="px-4 py-3">
                       Data Inicial
