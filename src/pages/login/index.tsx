@@ -20,7 +20,7 @@ export default function Login() {
 
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900">
+      <section className="dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -72,7 +72,7 @@ export default function Login() {
                     onChange={(e) => setUserPassword(e.target.value)}
                   />
                 </div>
-                  {/* <ReCaptcha className="flex items-center justify-center w-full" sitekey="6LdGYQQnAAAAALVG_k1bFfJX2FfjKgfYKVLQ-h_5"/> */}
+                {/* <ReCaptcha className="flex items-center justify-center w-full" sitekey="6LdGYQQnAAAAALVG_k1bFfJX2FfjKgfYKVLQ-h_5"/> */}
                 <div className="flex items-center justify-between">
                   <Link
                     to="/forget-password"

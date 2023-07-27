@@ -9,10 +9,10 @@ export default function Reports() {
 
   return (
     <>
-      <button onClick={toggle}>Open Modal </button>
+      {/* <button onClick={toggle}>Open Modal </button>
       <Modal isOpen={isOpen} toggle={toggle}>
         <ReportModal />
-      </Modal>
+      </Modal> */}
       <ReportLayout />
       <BottomNav />
     </>
