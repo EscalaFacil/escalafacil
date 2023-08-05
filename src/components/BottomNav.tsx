@@ -1,16 +1,15 @@
 import { signOut } from "@/firebase/login";
-import { Link, useNavigate } from "react-router-dom";
-import Button from "./ButtonSystem";
+import { Link, useParams } from "react-router-dom";
 
 export default function Navbar() {
-  const navigate = useNavigate();
+  const { orgSlug } = useParams();
 
   return (
     <>
       <div className="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-white border border-gray-200 rounded-full bottom-4 left-1/2 dark:bg-gray-700 dark:border-gray-600">
         <div className="grid h-full max-w-lg grid-cols-4 mx-auto">
           <Link
-            to="/:orgSlug/dashboard"
+            to={`/${orgSlug}/dashboard`}
             data-tooltip-target="tooltip-home"
             className="inline-flex flex-col items-center justify-center px-5 rounded-l-full hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
@@ -34,7 +33,7 @@ export default function Navbar() {
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           <Link
-            to="/:orgSlug/users"
+            to={`/${orgSlug}/users`}
             data-tooltip-target="tooltip-wallet"
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
@@ -59,7 +58,7 @@ export default function Navbar() {
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           <Link
-            to="/:orgSlug/reports"
+            to={`/${orgSlug}/reports`}
             data-tooltip-target="tooltip-wallet"
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"

@@ -41,10 +41,12 @@ export const router = createBrowserRouter([
   {
     path: "/:orgSlug/users",
     element: <Users />,
+    loader: AuthLoader,
   },
   {
     path: "/:orgSlug/reports",
     element: <Reports />,
+    loader: AuthLoader,
   },
 ]);
 
@@ -99,6 +101,8 @@ async function AuthLoader({ request, params }: LoaderFunctionArgs) {
   if (!userInfo) {
     return redirect("/login");
   }
+
+  console.log(orgSlug);
 
   // Verificar se o usuário está logado e sua organização é a mesma da URL
   if (orgSlug !== userInfo.companyId) {
