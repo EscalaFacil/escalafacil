@@ -33,7 +33,6 @@ export default function Navbar() {
             Home
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
-
           <Link
             to="/:orgSlug/users"
             data-tooltip-target="tooltip-wallet"
@@ -74,9 +73,9 @@ export default function Navbar() {
             >
               <path
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M1 12v5m5-9v9m5-5v5m5-9v9M1 7l5-6 5 6 5-6"
               />
             </svg>

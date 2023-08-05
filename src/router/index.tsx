@@ -6,7 +6,6 @@ import Users from "@pages/[org-slug]/users";
 import Reports from "@/pages/[org-slug]/reports";
 import Login from "@pages/login";
 import ForgetPassword from "@pages/forget-password";
-
 import {
   LoaderFunctionArgs,
   createBrowserRouter,
@@ -26,7 +25,7 @@ export const router = createBrowserRouter([
   {
     path: "/forget-password",
     element: <ForgetPassword />,
-    loader: ForgetPasswordLoader,
+    // loader: ForgetPasswordLoader,
   },
   {
     path: "/:orgSlug",
@@ -42,15 +41,14 @@ export const router = createBrowserRouter([
   {
     path: "/:orgSlug/users",
     element: <Users />,
-    loader: AuthLoader,
   },
   {
     path: "/:orgSlug/reports",
     element: <Reports />,
-    loader: AuthLoader,
   },
 ]);
 
+// Functions:
 async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
   const user = await getUser();
 
@@ -84,9 +82,9 @@ async function LoginLoader({ request, params }: LoaderFunctionArgs) {
   return redirect(`/${userInfo.companyId}`);
 }
 
-async function ForgetPasswordLoader({ request, params }: LoaderFunctionArgs) {
-  return null;
-}
+// async function ForgetPasswordLoader({ request, params }: LoaderFunctionArgs) {
+//   return null;
+// }
 
 async function AuthLoader({ request, params }: LoaderFunctionArgs) {
   const { orgSlug } = params;
@@ -105,8 +103,11 @@ async function AuthLoader({ request, params }: LoaderFunctionArgs) {
 
   // Verificar se o usuário está logado e sua organização é a mesma da URL
   if (orgSlug !== userInfo.companyId) {
+    console.log(orgSlug);
+    console.log(userInfo.companyId);
     return redirect(`/${userInfo.companyId}/dashboard`);
   }
 
+  console.log(orgSlug);
   return null;
 }
