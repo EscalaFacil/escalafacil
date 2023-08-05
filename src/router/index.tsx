@@ -58,7 +58,6 @@ async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
 
   // Realiza a verificação das informações do usuário:
   const userInfo = await getUserInfo(user.uid);
-  // console.log(userInfo);
   if (!userInfo) {
     return redirect("/login");
   }
@@ -103,11 +102,8 @@ async function AuthLoader({ request, params }: LoaderFunctionArgs) {
 
   // Verificar se o usuário está logado e sua organização é a mesma da URL
   if (orgSlug !== userInfo.companyId) {
-    console.log(orgSlug);
-    console.log(userInfo.companyId);
     return redirect(`/${userInfo.companyId}/dashboard`);
   }
 
-  console.log(orgSlug);
   return null;
 }
