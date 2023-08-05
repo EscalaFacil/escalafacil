@@ -1,11 +1,11 @@
-import BottomNav from "../../../components/BottomNav";
-import CRUDLayout from "../../../components/CRUDLayout";
+import CRUDLayout from "@components/CRUDLayout";
+import Navbar from "@components/Navbar";
 
 export default function Dashboard() {
   return (
     <>
+      <Navbar />
       <CRUDLayout />
-      <BottomNav />
     </>
   );
 }

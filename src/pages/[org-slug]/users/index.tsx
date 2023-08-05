@@ -1,11 +1,11 @@
-import BottomNav from "../../../components/BottomNav";
-import UsersLayout from "../../../components/UsersLayout";
+import Navbar from "@/components/Navbar";
+import UsersLayout from "@/components/UsersLayout";
 
 export default function Users() {
   return (
     <>
+      <Navbar />
       <UsersLayout />
-      <BottomNav />
     </>
   );
 }
