@@ -133,31 +133,6 @@ export default function ReportsLayout() {
                     </li>
                   </ul>
                 </nav>
-                <button
-                  // onClick={toggle}
-                  type="button"
-                  id="createProductModalButton"
-                  data-modal-target="createProductModal"
-                  data-modal-toggle="createProductModal"
-                  className="flex items-center justify-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-                >
-                  <svg
-                    className="h-3.5 w-3.5 mr-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 1v4a1 1 0 0 1-1 1H1m4 10v-2m3 2v-6m3 6v-4m4-10v16a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2Z"
-                    />
-                  </svg>
-                  Adicionar
-                </button>
                 <div className="flex items-center space-x-3 w-full md:w-auto">
                   <button
                     id="actionsDropdownButton"
@@ -427,6 +402,31 @@ export default function ReportsLayout() {
                     </ul>
                   </div>
                 </div>
+                <button
+                  // onClick={toggle}
+                  type="button"
+                  id="createProductModalButton"
+                  data-modal-target="createProductModal"
+                  data-modal-toggle="createProductModal"
+                  className="flex items-center justify-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                >
+                  <svg
+                    className="h-3.5 w-3.5 mr-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 1v4a1 1 0 0 1-1 1H1m4 10v-2m3 2v-6m3 6v-4m4-10v16a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2Z"
+                    />
+                  </svg>
+                  Adicionar
+                </button>
               </div>
             </div>
             <div className="overflow-x-auto">
