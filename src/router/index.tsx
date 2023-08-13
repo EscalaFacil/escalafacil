@@ -53,6 +53,7 @@ export const router = createBrowserRouter([
 // Functions:
 async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
   const user = await getUser();
+  console.log(user);
 
   if (!user) {
     return redirect("/login");

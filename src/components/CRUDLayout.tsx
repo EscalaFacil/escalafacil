@@ -1,11 +1,8 @@
 export default function CRUDLayout() {
   return (
     <>
-      {/* Start block */}
-
       <section className="dark:bg-gray-900 p-3 sm:p-5 antialiased">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
-          {/* Start coding here */}
           <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
               <div className="w-full md:w-1/2">
@@ -474,9 +471,19 @@ export default function CRUDLayout() {
               </table>
             </div>
             <nav
-              className="flex flex-col md:flex-row justify-between md:items-center space-y-3 md:space-y-0 p-0 items-center"
+              className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
               aria-label="Table navigation"
             >
+              <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                Mostrando&nbsp;
+                <span className="font-semibold text-gray-900 dark:text-white">
+                  1-20&nbsp;
+                </span>
+                de&nbsp;
+                <span className="font-semibold text-gray-900 dark:text-white">
+                  1000
+                </span>
+              </span>
               <ul className="inline-flex items-stretch -space-x-px">
                 <li>
                   <a
@@ -492,9 +499,9 @@ export default function CRUDLayout() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fillRule="evenodd"
+                        fill-rule="evenodd"
                         d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                        clipRule="evenodd"
+                        clip-rule="evenodd"
                       />
                     </svg>
                   </a>
@@ -529,7 +536,7 @@ export default function CRUDLayout() {
                     href="#"
                     className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                   >
-                    ...
+                    4
                   </a>
                 </li>
                 <li>
@@ -537,7 +544,7 @@ export default function CRUDLayout() {
                     href="#"
                     className="flex items-center justify-center text-sm py-2 px-3 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                   >
-                    100
+                    5
                   </a>
                 </li>
                 <li>
@@ -554,9 +561,9 @@ export default function CRUDLayout() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fillRule="evenodd"
+                        fill-rule="evenodd"
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clipRule="evenodd"
+                        clip-rule="evenodd"
                       />
                     </svg>
                   </a>
