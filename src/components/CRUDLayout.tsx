@@ -1,9 +1,30 @@
+import Dropdown from "@components/Dropdown";
+import { useState } from "react";
+
 export default function CRUDLayout() {
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+  const handleItemSelected = (item: string) => {
+    setSelectedItem(item);
+  };
+
+  const options = ["Opção 1", "Opção 2", "Opção 3"];
+  const actionSvg =
+    ' <svg className="-ml-1 mr-1.5 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" > <path clipRule="evenodd" fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>';
+
   return (
     <>
       <section className="dark:bg-gray-900 p-3 sm:p-5 antialiased">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
           <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+            <Dropdown
+              label="Ações"
+              items={options}
+              icon={actionSvg}
+              onItemSelected={handleItemSelected}
+            />
+
+            <p>Item selecionado: {selectedItem}</p>
             <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
               <div className="w-full md:w-1/2">
                 <form className="flex items-center">
@@ -39,7 +60,7 @@ export default function CRUDLayout() {
               <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                 <div className="flex items-center space-x-3 w-full md:w-auto">
                   <button
-                    id="actionsDropdownButton"
+                    id="actionsDropdown"
                     data-dropdown-toggle="actionsDropdown"
                     className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     type="button"
@@ -65,7 +86,7 @@ export default function CRUDLayout() {
                   >
                     <ul
                       className="py-1 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="actionsDropdownButton"
+                      aria-labelledby="actionsDropdown"
                     >
                       <li>
                         <a
@@ -86,7 +107,7 @@ export default function CRUDLayout() {
                     </div>
                   </div>
                   <button
-                    id="filterDropdownButton"
+                    id="filterDropdown"
                     data-dropdown-toggle="filterDropdown"
                     className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                     type="button"
@@ -129,7 +150,7 @@ export default function CRUDLayout() {
                     </h6>
                     <ul
                       className="space-y-2 text-sm"
-                      aria-labelledby="filterDropdownButton"
+                      aria-labelledby="filterDropdown"
                     >
                       <li className="flex items-center">
                         <input
@@ -499,9 +520,9 @@ export default function CRUDLayout() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   </a>
@@ -561,9 +582,9 @@ export default function CRUDLayout() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   </a>
