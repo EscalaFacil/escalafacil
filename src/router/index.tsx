@@ -6,6 +6,7 @@ import Users from "@pages/[org-slug]/users";
 import Reports from "@/pages/[org-slug]/reports";
 import Login from "@pages/login";
 import ForgetPassword from "@pages/forget-password";
+
 import {
   LoaderFunctionArgs,
   createBrowserRouter,
@@ -25,7 +26,6 @@ export const router = createBrowserRouter([
   {
     path: "/forget-password",
     element: <ForgetPassword />,
-    // loader: ForgetPasswordLoader,
   },
   {
     path: "/:orgSlug",
@@ -84,10 +84,6 @@ async function LoginLoader({ request, params }: LoaderFunctionArgs) {
   return redirect(`/${userInfo.companyId}`);
 }
 
-// async function ForgetPasswordLoader({ request, params }: LoaderFunctionArgs) {
-//   return null;
-// }
-
 async function AuthLoader({ request, params }: LoaderFunctionArgs) {
   const { orgSlug } = params;
 
@@ -103,9 +99,6 @@ async function AuthLoader({ request, params }: LoaderFunctionArgs) {
     return redirect("/login");
   }
 
-  console.log(orgSlug);
-
-  // Verificar se o usuário está logado e sua organização é a mesma da URL
   if (orgSlug !== userInfo.companyId) {
     return redirect(`/${userInfo.companyId}/dashboard`);
   }
