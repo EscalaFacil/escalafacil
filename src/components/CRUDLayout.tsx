@@ -1,30 +1,13 @@
-import Dropdown from "@components/Dropdown";
+import Dropdown from "@components/NewDropdown";
 import { useState } from "react";
 
 export default function CRUDLayout() {
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
-
-  const handleItemSelected = (item: string) => {
-    setSelectedItem(item);
-  };
-
-  const options = ["Opção 1", "Opção 2", "Opção 3"];
-  const actionSvg =
-    ' <svg className="-ml-1 mr-1.5 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" > <path clipRule="evenodd" fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>';
-
   return (
     <>
+      
       <section className="dark:bg-gray-900 p-3 sm:p-5 antialiased">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
           <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-            <Dropdown
-              label="Ações"
-              items={options}
-              icon={actionSvg}
-              onItemSelected={handleItemSelected}
-            />
-
-            <p>Item selecionado: {selectedItem}</p>
             <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
               <div className="w-full md:w-1/2">
                 <form className="flex items-center">
@@ -80,6 +63,7 @@ export default function CRUDLayout() {
                     </svg>
                     Ações
                   </button>
+                  <Dropdown />
                   <div
                     id="actionsDropdown"
                     className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
