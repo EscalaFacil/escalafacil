@@ -43,7 +43,6 @@ export default function ReportsLayout() {
                 </form>
               </div>
               <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                
                 <div className="flex items-center space-x-3 w-full md:w-auto">
                   <button
                     id="actionsDropdownButton"
@@ -510,9 +509,9 @@ export default function ReportsLayout() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   </a>
@@ -572,9 +571,9 @@ export default function ReportsLayout() {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   </a>
