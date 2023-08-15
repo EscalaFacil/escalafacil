@@ -1,10 +1,13 @@
-import Dropdown from "@components/NewDropdown";
-import { useState } from "react";
+import NewDropdown from "@components/NewDropdown";
 
 export default function CRUDLayout() {
+  const options = ["Opção 1", "Opção 2", "Opção 3"];
+  const handleOptionSelect = (selectedOption: any) => {
+    console.log(`Opção selecionada: ${selectedOption}`);
+  };
+
   return (
     <>
-      
       <section className="dark:bg-gray-900 p-3 sm:p-5 antialiased">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
           <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
@@ -42,7 +45,7 @@ export default function CRUDLayout() {
               </div>
               <div className="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                 <div className="flex items-center space-x-3 w-full md:w-auto">
-                  <button
+                  {/* <button
                     id="actionsDropdown"
                     data-dropdown-toggle="actionsDropdown"
                     className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
@@ -62,8 +65,12 @@ export default function CRUDLayout() {
                       />
                     </svg>
                     Ações
-                  </button>
-                  <Dropdown />
+                  </button> */}
+                  <NewDropdown
+                    label="Ações"
+                    items={options}
+                    onItemSelected={handleOptionSelect}
+                  />
                   <div
                     id="actionsDropdown"
                     className="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
@@ -90,41 +97,11 @@ export default function CRUDLayout() {
                       </a>
                     </div>
                   </div>
-                  <button
-                    id="filterDropdown"
-                    data-dropdown-toggle="filterDropdown"
-                    className="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-                    type="button"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                      className="h-4 w-4 mr-2 text-gray-400"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Filtrar
-                    <svg
-                      className="-mr-1 ml-1.5 w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        clipRule="evenodd"
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      />
-                    </svg>
-                  </button>
-
+                  <NewDropdown
+                    label="Filtrar"
+                    items={options}
+                    onItemSelected={handleOptionSelect}
+                  />
                   <div
                     id="filterDropdown"
                     className="z-10 hidden w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700"
