@@ -2,7 +2,7 @@ import NewDropdown from "@components/NewDropdown";
 
 export default function CRUDLayout() {
   const actionOptions = ["Edição em Massa", "Deletar Tudo"];
-  const filterOptions = ["Coleção"];
+  const filterOptions = ["Coleção", "Em Andamento", "Finalizado", "Cancelado"];
   const handleOptionSelect = (selectedOption: any) => {
     console.log(`Opção selecionada: ${selectedOption}`);
   };
