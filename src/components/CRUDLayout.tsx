@@ -469,7 +469,7 @@ export default function CRUDLayout() {
                             </button>
                           </li>
                         </ul>
-                      </div>
+                      </div>  
                     </td>
                   </tr>
                 </tbody>

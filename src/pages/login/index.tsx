@@ -72,13 +72,16 @@ export default function Login() {
                   />
                 </div>
                 {/* <ReCaptcha className="flex items-center justify-center w-full" sitekey="6LdGYQQnAAAAALVG_k1bFfJX2FfjKgfYKVLQ-h_5"/> */}
+
                 <div className="flex items-center justify-between">
-                  <Link
-                    to="/forget-password"
-                    className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Esqueceu sua senha?
-                  </Link>
+                  <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                    <Link
+                      to="/forget-password"
+                      className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    >
+                      Esqueceu sua senha?
+                    </Link>
+                  </p>
                   <div className="flex items-start">
                     <Button message="Entrar" onClick={tryLogin} />
                   </div>
