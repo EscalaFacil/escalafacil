@@ -1,4 +1,4 @@
-import NewDropdown from "@components/NewDropdown";
+import NewDropdown from "@/components/Dropdown";
 
 export default function CRUDLayout() {
   const options = ["Edição em Massa", "Deletar Tudo"];
@@ -425,7 +425,7 @@ export default function CRUDLayout() {
                             </button>
                           </li>
                         </ul>
-                      </div>  
+                      </div>
                     </td>
                   </tr>
                 </tbody>
