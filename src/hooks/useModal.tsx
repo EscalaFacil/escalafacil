@@ -7,8 +7,5 @@ export default function useModal() {
     setisOpen(!isOpen);
   };
 
-  return {
-    isOpen,
-    toggle,
-  };
+  return { isOpen, toggle };
 }
