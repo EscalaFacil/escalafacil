@@ -3,7 +3,7 @@ import { getUser } from "@firebase/login";
 import Root from "@pages";
 import Dashboard from "@pages/[org-slug]/dashboard";
 import Users from "@pages/[org-slug]/users";
-import Reports from "@/pages/[org-slug]/reports";
+import Reports from "@/pages/[org-slug]/reports/index";
 import Login from "@pages/login";
 import ForgetPassword from "@pages/forget-password";
 import Home from "@/pages/home";

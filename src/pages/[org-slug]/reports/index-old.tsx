@@ -3,9 +3,9 @@ import Dropdown from "@/components/Dropdown";
 import Modal from "@/components/Modal";
 import useModal from "@/hooks/useModal";
 
-export default function Dashboard() {
+export default function Reports() {
   const actionOptions = ["Edição em Massa", "Deletar Tudo"];
-  const filterOptions = ["Iniciada", "Em Andamento", "Finalizada"];
+  const filterOptions = ["Atividades", "Usuários"];
 
   const { isOpen: isOpenAddModal, toggle: toggleAddModal } = useModal();
   const { isOpen: isOpenEditModal, toggle: toggleEditModal } = useModal();
@@ -17,12 +17,14 @@ export default function Dashboard() {
   return (
     <>
       <Navbar />
+      {/* Start block */}
       <section className="dark:bg-gray-900 p-3 sm:p-5 antialiased">
         <div className="mx-auto max-w-screen-xl px-4 lg:px-12">
+          {/* Start coding here */}
           <div className="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
             <div className="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
               <span className="self-center text-2xl font-medium whitespace-nowrap dark:text-white">
-                Dashboard
+                Relatórios
               </span>
               <div className="w-full md:w-1/2">
                 <form className="flex items-center">
@@ -68,7 +70,7 @@ export default function Dashboard() {
                   >
                     <ul
                       className="py-1 text-sm text-gray-700 dark:text-gray-200"
-                      aria-labelledby="actionsDropdown"
+                      aria-labelledby="actionsDropdownButton"
                     >
                       <li>
                         <a
@@ -95,24 +97,29 @@ export default function Dashboard() {
                   />
                 </div>
                 <button
-                  type="button"
                   onClick={toggleAddModal}
+                  type="button"
                   id="createProductModalButton"
                   data-modal-target="createProductModal"
                   data-modal-toggle="createProductModal"
-                  className="flex items-center justify-center w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                  className="flex items-center justify-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
                 >
                   <svg
                     className="h-3.5 w-3.5 mr-2"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
+                    fill="none"
                     viewBox="0 0 20 20"
                   >
-                    <path d="M.188 5H5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707c-.358.362-.617.81-.753 1.3C.148 5.011.166 5 .188 5ZM14 8a6 6 0 1 0 0 12 6 6 0 0 0 0-12Zm2 7h-1v1a1 1 0 0 1-2 0v-1h-1a1 1 0 0 1 0-2h1v-1a1 1 0 0 1 2 0v1h1a1 1 0 0 1 0 2Z" />
-                    <path d="M6 14a7.969 7.969 0 0 1 10-7.737V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H.188A.909.909 0 0 1 0 6.962V18a1.969 1.969 0 0 0 1.933 2h6.793A7.976 7.976 0 0 1 6 14Z" />
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 1v4a1 1 0 0 1-1 1H1m4 10v-2m3 2v-6m3 6v-4m4-10v16a.97.97 0 0 1-.933 1H1.933A.97.97 0 0 1 1 18V5.828a2 2 0 0 1 .586-1.414l2.828-2.828A2 2 0 0 1 5.828 1h8.239A.97.97 0 0 1 15 2Z"
+                    />
                   </svg>
-                  Adicionar
+                  Gerar Relatório
                 </button>
               </div>
             </div>
@@ -121,22 +128,22 @@ export default function Dashboard() {
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                     <th scope="col" className="px-4 py-4">
-                      Nome
+                      TIPO DE RELATÓRIO
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Data Inicial
+                      CRIADO POR
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Data Final
+                      DATA CRIAÇÃO
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Status
+                      DATA ABRANGENTE INICIAL
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      Descrição
+                      DATA ABRANGENTE FINAL
                     </th>
                     <th scope="col" className="px-4 py-3">
-                      <span className="sr-only">Actions</span>
+                      <span className="sr-only">Ações</span>
                     </th>
                   </tr>
                 </thead>
@@ -146,21 +153,20 @@ export default function Dashboard() {
                       scope="row"
                       className="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
-                      Luccas Lopes
+                      Atividades
                     </th>
-                    <td className="px-4 py-3">05/07/2023 12:00</td>
-                    <td className="px-4 py-3">05/07/2023 13:00</td>
-                    <td className="px-4 py-3">Em andamento</td>
-                    <td className="px-4 py-3 max-w-[12rem] truncate">
-                      Conciliando dados bancários.
-                    </td>
+                    <td className="px-4 py-3">Luccas Lopes</td>
+                    <td className="px-4 py-3">10/07/2023 12:23</td>
+                    <td className="px-4 py-3">11/07/2023</td>
+                    <td className="px-4 py-3">11/07/2023</td>
+
                     <td className="px-4 py-3 flex items-center justify-end">
                       <button
-                        id="edit-button"
+                        id="apple-imac-27-dropdown-button"
+                        onClick={toggleEditModal}
                         data-dropdown-toggle="apple-imac-27-dropdown"
                         className="inline-flex items-center text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 p-1.5 dark:hover-bg-gray-800 text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
                         type="button"
-                        onClick={toggleEditModal}
                       >
                         <svg
                           className="w-5 h-5"
@@ -284,48 +290,26 @@ export default function Dashboard() {
         {/* Modal header */}
         <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            Adicionar Tarefa
+            Criar Novo Relatório
           </h3>
-          <button
-            type="button"
-            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-            data-modal-toggle="defaultModal"
-          ></button>
         </div>
         {/* Modal body */}
         <form action="#">
-          <div className="grid gap-4 mb-4 sm:grid-cols-2">
+          <div className="grid gap-4 mb-4 sm:grid-cols-3">
             <div>
               <label
-                htmlFor="nome"
+                htmlFor="reportType"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Nome
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Nome da tarefa"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="descricao"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Responsável
+                Tipo de Relatório
               </label>
               <select
-                id="user-selection"
+                id="category"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               >
-                <option selected>Fulano de Tal</option>
-                <option value="Luccas">Luccas</option>
-                <option value="Adriano">Adriano</option>
-                <option value="Guilherme">Guilherme</option>
+                <option selected>Selecione o tipo</option>
+                <option value="Luccas">Atividades</option>
+                <option value="Adriano">Usuários</option>
               </select>
             </div>
             <div>
@@ -336,7 +320,7 @@ export default function Dashboard() {
                 Data Inicial
               </label>
               <input
-                type="datetime-local"
+                type="date"
                 name="dataInicial"
                 id="dataFinal"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -353,7 +337,7 @@ export default function Dashboard() {
               </label>
 
               <input
-                type="datetime-local"
+                type="date"
                 name="dataInicial"
                 id="dataFinal"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -361,35 +345,6 @@ export default function Dashboard() {
                 required
               />
             </div>
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="description"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Descrição
-              </label>
-              <textarea
-                id="description"
-                rows={4}
-                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Faça uma breve descrição da tarefa."
-                defaultValue={""}
-              />
-            </div>
-          </div>
-          <div className="flex items-center mb-4">
-            <input
-              id="default-checkbox"
-              type="checkbox"
-              value=""
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="default-checkbox"
-              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Esta tarefa já foi finalizada
-            </label>
           </div>
           <button
             type="submit"
@@ -407,7 +362,7 @@ export default function Dashboard() {
                 clipRule="evenodd"
               />
             </svg>
-            Adicionar nova tarefa
+            Gerar relatório
           </button>
         </form>
       </Modal>
@@ -415,48 +370,26 @@ export default function Dashboard() {
         {/* Modal header */}
         <div className="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-            Tarefa
+            Criar Novo Relatório
           </h3>
-          <button
-            type="button"
-            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-            data-modal-toggle="defaultModal"
-          ></button>
         </div>
         {/* Modal body */}
         <form action="#">
-          <div className="grid gap-4 mb-4 sm:grid-cols-2">
+          <div className="grid gap-4 mb-4 sm:grid-cols-3">
             <div>
               <label
-                htmlFor="nome"
+                htmlFor="reportType"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Nome
-              </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Nome da tarefa"
-                required
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="descricao"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Responsável
+                Tipo de Relatório
               </label>
               <select
                 id="category"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               >
-                <option selected>Fulano de Tal</option>
-                <option value="Luccas">Luccas</option>
-                <option value="Adriano">Adriano</option>
-                <option value="Guilherme">Guilherme</option>
+                <option selected>Selecione o tipo</option>
+                <option value="Luccas">Atividades</option>
+                <option value="Adriano">Usuários</option>
               </select>
             </div>
             <div>
@@ -467,7 +400,7 @@ export default function Dashboard() {
                 Data Inicial
               </label>
               <input
-                type="datetime-local"
+                type="date"
                 name="dataInicial"
                 id="dataFinal"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -484,7 +417,7 @@ export default function Dashboard() {
               </label>
 
               <input
-                type="datetime-local"
+                type="date"
                 name="dataInicial"
                 id="dataFinal"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -492,41 +425,11 @@ export default function Dashboard() {
                 required
               />
             </div>
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="description"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Descrição
-              </label>
-              <textarea
-                id="description"
-                rows={4}
-                className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Faça uma breve descrição da tarefa."
-                defaultValue={""}
-              />
-            </div>
           </div>
-          <div className="flex items-center mb-4">
-            <input
-              id="default-checkbox"
-              type="checkbox"
-              value=""
-              className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="default-checkbox"
-              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Esta tarefa já foi finalizada
-            </label>
-          </div>
-
           <div className="space-x-3">
             <button
               type="submit"
-              className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             >
               <svg
                 className="mr-1 -ml-1 w-6 h-6"
@@ -540,11 +443,11 @@ export default function Dashboard() {
                   clipRule="evenodd"
                 />
               </svg>
-              Atualizar tarefa
+              Atualizar relatório
             </button>
             <button
               type="submit"
-              className=" text-white inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+              className=" text-white inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             >
               <svg
                 className="mr-1 -ml-1 w-6 h-6"
@@ -558,7 +461,7 @@ export default function Dashboard() {
                   clipRule="evenodd"
                 />
               </svg>
-              Excluir tarefa
+              Excluir relatório
             </button>
           </div>
         </form>
