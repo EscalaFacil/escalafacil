@@ -3,11 +3,29 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import logo from "src/logo.svg";
 import Button from "../../components/ButtonSystem";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ForgetPassword() {
   const navigate = useNavigate();
 
   const [userEmail, setUserEmail] = useState("");
+
+  const sendResetPassword = async () => {
+    // const user = await signInWithEmail(userEmail, userPassword);
+    if (true) {
+      toast.info("E-mail enviado!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+  };
 
   return (
     <>
@@ -25,6 +43,9 @@ export default function ForgetPassword() {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Recupere sua senha
               </h1>
+              <p className="text-gray-600 text-sm">
+                Enviaremos um e-mail com um link para redefinir sua senha.
+              </p>
               <div className="space-y-4 md:space-y-6">
                 <div>
                   <input
@@ -38,7 +59,7 @@ export default function ForgetPassword() {
                     onChange={(e) => setUserEmail(e.target.value)}
                   />
                 </div>
-                <Button message="Redefinir" />
+                <Button message="Redefinir" onClick={sendResetPassword} />
 
                 {/* <button className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                   Redefinir
@@ -52,6 +73,18 @@ export default function ForgetPassword() {
                   >
                     Voltar
                   </Link>
+                  <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+                  />
                 </p>
               </div>
             </div>
