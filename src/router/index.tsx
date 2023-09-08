@@ -104,8 +104,8 @@ async function AuthLoader({ request, params }: LoaderFunctionArgs) {
     return redirect("/login");
   }
 
-  if (orgSlug !== userInfo.companyId) {
-    return redirect(`/${userInfo.companyId}/dashboard`);
+  if (orgSlug !== userInfo.id_empresa) {
+    return redirect(`/${userInfo.id_empresa}/dashboard`);
   }
 
   return null;
