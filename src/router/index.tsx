@@ -6,6 +6,7 @@ import Users from "@pages/[org-slug]/users";
 import Reports from "@/pages/[org-slug]/reports";
 import Login from "@pages/login";
 import ForgetPassword from "@pages/forget-password";
+import Home from "@/pages/home";
 
 import {
   LoaderFunctionArgs,
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
   {
     path: "/",
     loader: UnauthLoader,
+  },
+  {
+    path: "/home",
+    element: <Home />,
   },
   {
     path: "/login",
