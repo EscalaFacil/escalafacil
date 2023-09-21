@@ -1,4 +1,4 @@
-import { getUserInfo } from "@firebase/database";
+import { getUserInfo, getCompanyInfo } from "@firebase/database";
 import { getUser } from "@firebase/login";
 import Root from "@pages";
 import Dashboard from "@pages/[org-slug]/dashboard";
@@ -58,54 +58,66 @@ export const router = createBrowserRouter([
 // Functions:
 async function UnauthLoader({ request, params }: LoaderFunctionArgs) {
   const user = await getUser();
-  console.log(user);
-
   if (!user) {
     return redirect("/login");
   }
 
-  // Realiza a verificação das informações do usuário:
+  // Pega as informações do usuário:
   const userInfo = await getUserInfo(user.uid);
   if (!userInfo) {
     return redirect("/login");
   }
 
-  return redirect(`/${userInfo.companyId}`);
+  // Pega as informações da empresa:
+  const companyInfo = await getCompanyInfo(userInfo.id_empresa);
+  if (!companyInfo) {
+    return redirect("/login");
+  }
+
+  console.log(companyInfo.slug);
+
+  return redirect(`/${companyInfo.slug}`);
 }
 
 async function LoginLoader({ request, params }: LoaderFunctionArgs) {
   const user = await getUser();
-
   if (!user) {
     return null;
   }
 
   const userInfo = await getUserInfo(user.uid);
-
   if (!userInfo) {
     return null;
   }
 
-  return redirect(`/${userInfo.companyId}`);
+  const companyInfo = await getCompanyInfo(userInfo.id_empresa);
+  if (!companyInfo) {
+    return null;
+  }
+
+  return redirect(`/${companyInfo.slug}`);
 }
 
 async function AuthLoader({ request, params }: LoaderFunctionArgs) {
   const { orgSlug } = params;
 
   const user = await getUser();
-
   if (!user) {
     return redirect("/login");
   }
 
   const userInfo = await getUserInfo(user.uid);
-
   if (!userInfo) {
     return redirect("/login");
   }
 
-  if (orgSlug !== userInfo.id_empresa) {
-    return redirect(`/${userInfo.id_empresa}/dashboard`);
+  const companyInfo = await getCompanyInfo(userInfo.id_empresa);
+  if (!companyInfo) {
+    return redirect("/login");
+  }
+
+  if (orgSlug !== companyInfo.slug) {
+    return redirect(`/${companyInfo.slug}/dashboard`);
   }
 
   return null;

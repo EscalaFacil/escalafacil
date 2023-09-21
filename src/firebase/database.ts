@@ -10,3 +10,11 @@ export async function getUserInfo(uid: string) {
 
   return userInfo;
 }
+
+export async function getCompanyInfo(uid: string) {
+  const docRef = doc(db, "empresas", uid);
+  const docSnap = await getDoc(docRef);
+  const companyInfo = docSnap.data();
+
+  return companyInfo;
+}

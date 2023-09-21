@@ -23,7 +23,7 @@ export default function Login() {
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: "colored",
+        theme: "light",
       });
       navigate("/");
     } else {
@@ -35,7 +35,7 @@ export default function Login() {
         pauseOnHover: true,
         draggable: false,
         progress: undefined,
-        theme: "colored",
+        theme: "light",
       });
     }
   };
@@ -58,12 +58,6 @@ export default function Login() {
               </h1>
               <div className="space-y-4 md:space-y-6">
                 <div>
-                  {/* <label
-                    htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    E-mail
-                  </label> */}
                   <input
                     type="email"
                     name="email"
@@ -77,12 +71,6 @@ export default function Login() {
                   />
                 </div>
                 <div>
-                  {/* <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Senha
-                  </label> */}
                   <input
                     type="password"
                     name="password"
@@ -109,29 +97,6 @@ export default function Login() {
                     <Button message="Entrar" onClick={tryLogin} />
                   </div>
                 </div>
-
-                {/* <button
-                  onClick={async (e) => { 
-                    const user = await signInWithEmail(userEmail, userPassword);
-                    console.log(user);
-                    if (user) {
-                      navigate("/");
-                    }
-                  }}
-                  className="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                >
-                  Entrar
-                </button> */}
-
-                {/* <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Ainda não tem uma conta?{" "}
-                  <a
-                    href="#"
-                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Cadastre-se
-                  </a>
-                </p> */}
               </div>
             </div>
           </div>
